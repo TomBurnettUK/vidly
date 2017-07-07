@@ -28,6 +28,11 @@ namespace Vidly.Controllers
             return View(movies);
         }
 
+        public ActionResult New()
+        {
+            return View("MovieForm");
+        }
+
         [Route("movies/details/{id}")]
         public ActionResult Details(int id)
         {

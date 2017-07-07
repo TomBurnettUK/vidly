@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MovieForm</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
