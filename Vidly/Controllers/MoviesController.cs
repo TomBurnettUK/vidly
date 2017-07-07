@@ -38,6 +38,7 @@ namespace Vidly.Controllers
             return View("MovieForm", model);
         }
 
+        [HttpPost]
         public ActionResult Save(Movie movie)
         {
             movie.DateAdded = DateTime.Now;
