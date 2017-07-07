@@ -30,7 +30,20 @@ namespace Vidly.Controllers
 
         public ActionResult New()
         {
-            return View("MovieForm");
+            var model = new MovieFormViewModel
+            {
+                GenreList = this.context.Genres.ToList(),
+            };
+
+            return View("MovieForm", model);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            movie.DateAdded = DateTime.Now;
+            this.context.Movies.Add(movie);
+            this.context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
 
         [Route("movies/details/{id}")]
