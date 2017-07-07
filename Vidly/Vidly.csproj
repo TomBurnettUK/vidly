@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201707071555029_AddAnnotationsToMovie.Designer.cs">
       <DependentUpon>201707071555029_AddAnnotationsToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707072322458_MakeMovieReleaseDateRequired.cs" />
+    <Compile Include="Migrations\201707072322458_MakeMovieReleaseDateRequired.Designer.cs">
+      <DependentUpon>201707072322458_MakeMovieReleaseDateRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -261,6 +265,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\ValidNumberInStock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -391,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707071555029_AddAnnotationsToMovie.resx">
       <DependentUpon>201707071555029_AddAnnotationsToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707072322458_MakeMovieReleaseDateRequired.resx">
+      <DependentUpon>201707072322458_MakeMovieReleaseDateRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

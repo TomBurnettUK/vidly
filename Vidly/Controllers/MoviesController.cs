@@ -32,6 +32,7 @@ namespace Vidly.Controllers
         {
             var model = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 GenreList = this.context.Genres.ToList(),
             };
 
@@ -41,6 +42,17 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var model = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    GenreList = this.context.Genres.ToList()
+                };
+
+                return View("MovieForm", model);
+            }
+
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
