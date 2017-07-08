@@ -22,7 +22,7 @@
         @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
     </div>
-
+    
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.GenreId)
         @Html.DropDownListFor(m => m.Movie.GenreId, new SelectList(Model.GenreList, "Id", "Name"), "Select genre", new { @class = "form-control" })
