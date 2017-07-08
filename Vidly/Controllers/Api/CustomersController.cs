@@ -75,6 +75,7 @@ namespace Vidly.Controllers.Api
         }
 
         // DELETE /api/customers/1
+        [HttpDelete]
         public void DeleteCustomer(int id)
         {
             var customerToDelete = this.context.Customers.SingleOrDefault(c => c.Id == id);
