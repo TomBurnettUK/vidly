@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44367</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -276,6 +276,14 @@
     <Compile Include="Migrations\201707072322458_MakeMovieReleaseDateRequired.Designer.cs">
       <DependentUpon>201707072322458_MakeMovieReleaseDateRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707091128255_SeedUsers.cs" />
+    <Compile Include="Migrations\201707091128255_SeedUsers.Designer.cs">
+      <DependentUpon>201707091128255_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707091226072_AddDrivingLicenseToUser.cs" />
+    <Compile Include="Migrations\201707091226072_AddDrivingLicenseToUser.Designer.cs">
+      <DependentUpon>201707091226072_AddDrivingLicenseToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -285,6 +293,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\ValidNumberInStock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -604,10 +613,11 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -658,6 +668,12 @@
     <EmbeddedResource Include="Migrations\201707072322458_MakeMovieReleaseDateRequired.resx">
       <DependentUpon>201707072322458_MakeMovieReleaseDateRequired.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091128255_SeedUsers.resx">
+      <DependentUpon>201707091128255_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091226072_AddDrivingLicenseToUser.resx">
+      <DependentUpon>201707091226072_AddDrivingLicenseToUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -683,7 +699,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50712</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50712/</IISUrl>
+          <IISUrl>https://localhost:44367/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
