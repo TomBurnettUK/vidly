@@ -8,20 +8,17 @@
 
 @if (Model.Any())
 {
-    <table class="table table-bordered table-hover">
+    <table id="movies" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <td>Movie</td>
                 <td>Genre</td>
+                <td>Delete</td>
             </tr>
         </thead>
-        @foreach (var movie in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
-                <td>@movie.Genre.Name</td>
-            </tr>
-        }
+        <tbody>
+
+        </tbody>
     </table>
 }
 else
@@ -30,3 +27,47 @@ else
 }
 
 @Html.ActionLink("Add New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+
+@section scripts
+{
+    <script>
+        const movieTable = $('#movies').DataTable({
+            ajax: {
+                url: '/api/movies',
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    data: 'name',
+                    render: (data, type, movie) => `<a href="/customers/edit/${movie.id}">${movie.name}</a>`
+                },
+                {
+                    data: 'genre.name'
+                },
+                {
+                    data: 'id',
+                    render: (data) => `<button class="btn-link js-delete" data-movie-id="${data}">Delete</button>`
+                }
+            ]
+        });
+
+        $(document).ready(() => {
+            $('#movies').on('click', '.js-delete', function () {
+                bootbox.confirm('Are you sure you want to delete this movie?', (result) => {
+                    const deleteButton = $(this);
+                    if (result) {
+                        $.ajax({
+                            url: `/api/movies/${deleteButton.attr('data-movie-id')}`,
+                            method: 'DELETE',
+                            success: () => {
+                                movieTable.row(deleteButton.parents('tr'))
+                                    .remove()
+                                    .draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
