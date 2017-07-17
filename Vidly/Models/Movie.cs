@@ -29,7 +29,5 @@ namespace Vidly.Models
         [Display(Name = "Number in Stock")]
         [ValidNumberInStock]
         public int? NumberInStock { get; set; }
-
-        public byte NumberAvailable { get; set; }
     }
 }
